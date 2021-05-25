@@ -26,15 +26,25 @@
   </header>
 
 <main>
-  <div class="ContactUs">
+  <form class="ContactUs" onsubmit="return submitMessage(event);">
     <label for "Email">Email</label>
-    <input type="text" name="Email" id="Email">
+    <input type="text" name="Email" id="Email" required>
     <label for "FullName">Full Name</label>
     <input type="text" name="FullName" id="FullName">
-
-
-  </div>
+    <label for "Message">Message</label>
+    <textarea name="message" id="message" rows=3 columns="20" required>Leave your message here</textarea>
+    
+    <button>Clear</button>
+    <input type="submit">
+  </form>
 </main>
-
+<script>
+  function submitMessage(event){
+    event.preventDefault();
+    const email = document.getElementById("Email").value;
+    const fullname = document.getElementById("FullName").value;
+    const message = document.getElementById ("message").value;
+  }
+</script>
   
 </html>
