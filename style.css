@@ -1,0 +1,26 @@
+
+nav > ul {
+list-style-type: none;
+display:flex;
+justify-content: space-around;
+align-items: center;
+border:thistle solid;
+padding: 10px;
+font-family: Lucida Sans;
+}
+
+nav > ul > li > a {
+  color:darkmagenta;
+  text-decoration: none;
+}
+
+nav > ul > li > a:hover{
+color:lightseagreen;
+text-decoration: underline;
+}
+
+header {
+text-align: center;
+font-family: Lucida Sans;
+color:rebeccapurple;
+}

@@ -1,0 +1,23 @@
+main {
+  display: flex;
+  justify-content: center;
+}
+
+main > .gallery {
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+
+
+main > .gallery > img {
+  height: 120px;
+  width: 150px;
+  padding: 10px;
+  border: 2px solid lavender;
+  box-shadow:indigo 0 4px 8px 0;
+}
+
+main > .gallery > img:hover {
+  box-shadow:deeppink 0 8px 16px 0;
+}
