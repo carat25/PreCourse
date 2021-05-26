@@ -26,16 +26,16 @@
   </header>
 
 <main>
-  <form class="ContactUs" onsubmit="return submitMessage(event);">
+  <form class="ContactUs" onsubmit="return submitMessage(event)">
     <label for "Email">Email</label>
     <input type="text" name="Email" id="Email" required>
     <label for "FullName">Full Name</label>
-    <input type="text" name="FullName" id="FullName">
+    <input type="text" name="FullName" id="FullName" required>
     <label for "Message">Message</label>
     <textarea name="message" id="message" rows=3 columns="20" required>Leave your message here</textarea>
     
     <button>Clear</button>
-    <input type="submit">
+    <input type="submit" value="submit">
   </form>
 </main>
 <script>
@@ -44,6 +44,12 @@
     const email = document.getElementById("Email").value;
     const fullname = document.getElementById("FullName").value;
     const message = document.getElementById ("message").value;
+
+    const messageObject = {
+      Email, FullName, message
+    };
+
+    console.log(messageObject);
   }
 </script>
   
