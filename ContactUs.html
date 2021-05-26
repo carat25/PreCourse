@@ -38,19 +38,66 @@
     <input type="submit" value="submit">
   </form>
 </main>
+
+<footer>
+  <!-- <div class="form-title-section">
+    <h3>Contact Messages</h3>
+    <button>Clear Messages</button>
+  </div>
+  <div class="form-wrapper">
+
+  </div> -->
+  <dl id="currentMessages">
+  </dl>
+</footer>
+
 <script>
-  function submitMessage(event){
+  function submitMessage(event) {
     event.preventDefault();
     const email = document.getElementById("Email").value;
     const fullname = document.getElementById("FullName").value;
     const message = document.getElementById ("message").value;
 
     const messageObject = {
-      Email, FullName, message
+      email, fullname, message
     };
 
-    console.log(messageObject);
+    let currentMessages=[];
+
+      if (window.sessionStorage.getItem("messages")) {
+        currentMessages =
+      JSON.parse(
+        window.sessionStorage.getItem("messages"));
+      }
+
+      currentMessages.push(messageObject);
+      window.sessionStorage.setItem("messages",JSON.stringify(currentMessages));
+    /*console.log(messageObject);*/
+    renderMessages();
   }
+
+  function renderMessages() {
+    let currentMessages =[];
+
+    if (window.sessionStorage.getItem("messages")) {currentMessages =
+      JSON.parse(window.sessionStorage.getItem("messages"));
+  }
+
+  let listItems = [];
+  for (let i = 0; i < currentMessages.length; i++) {
+    let listItem = "";
+    const currentMessage = currentMessages[i];
+    listItem +=`<dt>${currentMessage.fullname} - ${currentMessage.email}</dt>`;
+    listItem += `<dd>${currentMessage.message}</dd>`;
+    listItem += `<br/>`;
+    listItems.push(listItem);
+      }
+
+      let descList = document.getElementById('currentMessages');
+      descList.innerHTML = listItems.join('');
+    }
+
+    renderMessages();
 </script>
   
 </html>
